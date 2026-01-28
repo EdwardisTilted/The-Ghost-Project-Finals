@@ -1,6 +1,8 @@
 public class Main {
-
     public static void main(String[] args) {
-        CurrencyConverterGUI w = new CurrencyConverterGUI();
+        CurrencyRateService api = new CurrencyRateService();
+        CurrencyConverterGUI gui = new CurrencyConverterGUI();
+        gui.setVisible(true);
+        Controller controller = new Controller(gui, api);
     }
 }
