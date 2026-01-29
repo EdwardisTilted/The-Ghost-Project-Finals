@@ -24,7 +24,7 @@ public class CurrencyConverterGUI implements ActionListener
     public void startScreen2()
     {   
         frame2 = new JFrame("Currency Converter");
-        switchbtn = new JButton("Swap");
+        switchbtn = new JButton("⇆");
         switchbtn.addActionListener(this);
         exitbtn = new JButton("Exit");
         exitbtn.addActionListener(this);
@@ -54,6 +54,7 @@ public class CurrencyConverterGUI implements ActionListener
         from.addItem("BRP");
         from.addItem("CHF");
         from.addItem("JPY");
+        from.addItem("PHP");
         to.addItem("USD");
         to.addItem("EUR");
         to.addItem("AUD");
@@ -64,6 +65,7 @@ public class CurrencyConverterGUI implements ActionListener
         to.addItem("BRP");
         to.addItem("CHF");
         to.addItem("JPY");
+        to.addItem("PHP");
         fromtf = new JTextField();
         totf = new JTextField();
 
@@ -107,5 +109,6 @@ public class CurrencyConverterGUI implements ActionListener
             System.exit(0);
         }
     }
+    
 }
 
