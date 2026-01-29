@@ -18,7 +18,7 @@ public class Controller {
             System.out.println(result);
             gui.resultLabel.setText("Result: " + result);
             gui.pack();
-        } catch (Exception error) {
+            } catch (Exception error) {
             error.getMessage();
         }
     }
