@@ -2,57 +2,52 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 public class CurrencyConverterGUI implements ActionListener
 {
     private JFrame frame1, frame2;
-    private JPanel p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, mp1, mp2;
+    private JPanel p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, mp1, mp2, panel;
     private JButton Startbtn, exitbtn, convertbtn, switchbtn;
     private JLabel label1, label2, label3, dummylabel;
     public JComboBox from, to;
     private JTextField fromtf, totf;
     public void startScreen1()
     {  
-        Startbtn = new JButton("Start");
-        Startbtn.addActionListener(this);
-        label1 = new JLabel("Philippine Peso Exchange System");
-        label1.setHorizontalAlignment(JLabel.CENTER);
-        frame1 = new JFrame("Currency Converter");
-        mp1 = new JPanel();
-        mp1.setLayout(new GridLayout(7, 1));
-        p1 = new JPanel();
-        p1.setLayout(new GridLayout(1, 1));
-        p2 = new JPanel();
-        p2.setLayout(new GridLayout(1, 1));
-        p3 = new JPanel();
-        p3.setLayout(new GridLayout(1, 1));
-        p4 = new JPanel();
-        p4.setLayout(new GridLayout(1, 1));
-        p5 = new JPanel();
-        p5.setLayout(new GridLayout(1, 1));
-        p6 = new JPanel();
-        p6.setLayout(new GridLayout(1, 1));
-        p7 = new JPanel();
-        p7.setLayout(new GridLayout(1, 1));
+            frame1 = new JFrame("Philippine Peso Exchange System");
+            frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame1.setSize(600, 350);
+            frame1.setLocationRelativeTo(null);
 
-        p3.add(label1);
-        p4.add(Startbtn);
-        
-        mp1.add(p1);
-        mp1.add(p2);
-        mp1.add(p3);
-        mp1.add(p4);
-        mp1.add(p5);
-        mp1.add(p6);
-        mp1.add(p7);
-        frame1.setContentPane(mp1);
-        frame1.setSize(600, 450);
-        frame1.setVisible(true);
-        frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame1.setResizable(true);
+            panel = new JPanel();
+            panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+            panel.setBackground(Color.WHITE);
+            panel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.BLACK, 2),new EmptyBorder(40, 40, 40, 40)));
+
+            JLabel title = new JLabel("Philippine Peso Exchange System");
+            title.setAlignmentX(Component.CENTER_ALIGNMENT);
+            title.setFont(new Font("SansSeriff", Font.PLAIN, 22));
+
+            Startbtn = new JButton("Start");
+            Startbtn.setAlignmentX(Component.CENTER_ALIGNMENT);
+            Startbtn.setBackground(new Color(0, 200, 120));
+            Startbtn.setForeground(Color.BLACK);
+            Startbtn.setFocusPainted(false);
+            Startbtn.setFont(new Font("SansSeriff", Font.PLAIN, 22));
+            Startbtn.setPreferredSize(new Dimension(120, 40));
+            Startbtn.addActionListener(this);
+
+            panel.add(Box.createRigidArea(new Dimension(0, 60)));
+            panel.add(title);
+            panel.add(Box.createRigidArea(new Dimension(0, 20)));
+            panel.add(Startbtn);
+
+            frame1.add(panel);
+            frame1.setVisible(true);
     }
 
     public void startScreen2()
     {   
+        
         frame2 = new JFrame("Currency Converter");
         mp2 = new JPanel();
         switchbtn = new JButton("⇆");
@@ -131,11 +126,13 @@ public class CurrencyConverterGUI implements ActionListener
         mp2.add(p12);
         mp2.add(p13);
         mp2.add(p14);
+        //frame2.setLocationRelativeTo(null);
         frame2.setContentPane(mp2);
         frame2.setSize(600, 450);
         frame2.setVisible(false);
+        frame2.setLocation(650, 300);
         frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame2.setResizable(true);
+        frame2.setResizable(false);
     }
 
     @Override
