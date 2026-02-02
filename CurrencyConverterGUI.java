@@ -1,22 +1,20 @@
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-public class CurrencyConverterGUI implements ActionListener
+public class CurrencyConverterGUI
 {
-    private JFrame frame1, frame2;
+    public JFrame frame1, frame2;
     private JPanel p8, p9, p10, p11, p12, p13, p14, mp2, panel;
-    private JButton Startbtn, exitbtn, convertbtn, switchbtn;
-    private JLabel label2, label3, dummylabel;
-    public JComboBox from, to;
+    public JButton Startbtn, exitbtn, convertbtn, switchbtn;
+    private JLabel label1, label2, label3, dummylabel;
+    public JComboBox<String> from, to = new JComboBox<>();
     private JTextField fromtf, totf;
     public void startScreen1()
-    {  
+    {       
             frame1 = new JFrame("Philippine Peso Exchange System");
             frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame1.setSize(600, 350);
-            frame1.setLocationRelativeTo(null);
+            frame1.setLocation(650, 300);
 
             panel = new JPanel();
             panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -34,7 +32,7 @@ public class CurrencyConverterGUI implements ActionListener
             Startbtn.setFocusPainted(false);
             Startbtn.setFont(new Font("SansSeriff", Font.PLAIN, 22));
             Startbtn.setPreferredSize(new Dimension(120, 40));
-            Startbtn.addActionListener(this);
+
 
             panel.add(Box.createRigidArea(new Dimension(0, 60)));
             panel.add(title);
@@ -47,15 +45,10 @@ public class CurrencyConverterGUI implements ActionListener
 
     public void startScreen2()
     {   
-        
         frame2 = new JFrame("Currency Converter");
         mp2 = new JPanel();
-        switchbtn = new JButton("⇆");
-        switchbtn.addActionListener(this);
-        exitbtn = new JButton("Exit");
-        exitbtn.addActionListener(this);
+        switchbtn = new JButton("⇆");        exitbtn = new JButton("Exit");
         convertbtn = new JButton("Convert");
-        convertbtn.addActionListener(this);
         label2 = new JLabel("Convert from: ");
         label3 = new JLabel("Convert to: ");
 
@@ -70,30 +63,8 @@ public class CurrencyConverterGUI implements ActionListener
         mp2 = new JPanel();
 
         //Combo Boxes
-        from = new JComboBox();
-        to = new JComboBox();
-        from.addItem("USD");
-        from.addItem("EUR");
-        from.addItem("AUD");
-        from.addItem("SGD");
-        from.addItem("MYR");
-        from.addItem("INR");
-        from.addItem("CAD");
-        from.addItem("BRP");
-        from.addItem("CHF");
-        from.addItem("JPY");
-        from.addItem("PHP");
-        to.addItem("USD");
-        to.addItem("EUR");
-        to.addItem("AUD");
-        to.addItem("SGD");
-        to.addItem("MYR");
-        to.addItem("INR");
-        to.addItem("CAD");
-        to.addItem("BRP");
-        to.addItem("CHF");
-        to.addItem("JPY");
-        to.addItem("PHP");
+        //from = new JComboBox<>();
+        //to = new JComboBox<>();
         fromtf = new JTextField("");
         totf = new JTextField("");
         dummylabel = new JLabel("");
@@ -126,18 +97,17 @@ public class CurrencyConverterGUI implements ActionListener
         mp2.add(p12);
         mp2.add(p13);
         mp2.add(p14);
-        //frame2.setLocationRelativeTo(null);
-        frame2.setContentPane(mp2);
-        frame2.setSize(600, 450);
-        frame2.setVisible(false);
         frame2.setLocation(650, 300);
+        frame2.setContentPane(mp2);
+        frame2.setSize(600, 350);
+        frame2.setVisible(false);
         frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame2.setResizable(false);
     }
-
-    @Override
-    public void actionPerformed(ActionEvent e)
+    public void setCombobox(String a)
     {
+        from.addItem(a);
+        to.addItem(a);
     }
 }
 

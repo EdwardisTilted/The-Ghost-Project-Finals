@@ -1,6 +1,4 @@
 
-import java.io.IOException;
-import java.net.URI;
 import java.net.http.*;
 
 
@@ -9,9 +7,21 @@ public final class CurrencyRateService
     HttpClient client;
     HttpRequest request;
     HttpResponse<String> response;
+    String[] currencies = {"USD", "EUR", "AUD", "SGD", "MYR", "INR", "CAD", "CHF", "JPY", "PHP"};
+    Double[] rates = {60.50659, 1.0, 1.62045, 1.45925, 4.6425, 88.5025, 1.34415, 0.91365, 162.410, 56.573};
     String base, to;
     double amount;  
 
+    public String[] getCurrency(){
+        return currencies;
+    }
+
+    public Double[] getRates(){
+        return rates;
+    }
+
+}
+/*
     public double convert(String from, String to, double amount)
     {
         setBase(from);
@@ -71,4 +81,4 @@ public final class CurrencyRateService
     {
         this.amount = amount;
     }
-}   
+*/

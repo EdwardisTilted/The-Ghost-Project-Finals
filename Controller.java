@@ -2,12 +2,27 @@ public class Controller {
     private final CurrencyConverterGUI gui;
     private final CurrencyRateService service;
 
-    public Controller(CurrencyConverterGUI gui, CurrencyRateService service) {
+    public Controller(CurrencyConverterGUI gui, CurrencyRateService service)
+    {
+        // assign final fields first
         this.gui = gui;
         this.service = service;
+        for (String currency : service.getCurrency()) {
+            this.gui.setCombobox(currency);
+        }
 
+        // then initialize the GUI
+        this.gui.startScreen1();
+
+        // add action listeners
+        this.gui.Startbtn.addActionListener(e -> {
+            gui.startScreen2();
+            gui.frame2.setVisible(true);
+            gui.frame1.setVisible(false);
+            //gui.convertbtn.addActionListener(ev -> convertCurrency());
+        });
     }
-
+/*
     private void convertCurrency()
     {
         try
@@ -21,5 +36,5 @@ public class Controller {
             error.printStackTrace();
         }
     }
-    
+*/
 }
