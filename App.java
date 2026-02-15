@@ -34,12 +34,14 @@ public class App {
         gui.convertbtn.addActionListener(ActionEvent -> {
             gui.totf.setText("0.00");
             if (gui.fromtf.getText().isEmpty()) {
-                gui.frame2.pack();
+                gui.frame2.revalidate();
+                gui.frame2.repaint();
                 return;
             }
             updateL();
-                
-            gui.frame2.pack();
+            gui.recordConversion();
+            gui.frame2.revalidate();
+            gui.frame2.repaint();
         });
 
         gui.switchbtn.addActionListener(ActionEvent -> {
@@ -51,7 +53,6 @@ public class App {
                 gui.fromtf.setText(gui.totf.getText());
                 gui.totf.setText(temp);
                 gui.convertbtn.doClick();
-                gui.frame2.pack();
         });
 
     }
