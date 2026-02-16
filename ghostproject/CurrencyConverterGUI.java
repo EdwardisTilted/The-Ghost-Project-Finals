@@ -183,8 +183,8 @@ public class CurrencyConverterGUI
         }
     }
 
-    public void recordConversion() {
-        try {
+    public void recordConversion()
+    {
             double amount = Double.parseDouble(fromtf.getText());
             double result = Double.parseDouble(totf.getText());
             String fromCode = from.getSelectedItem() != null ? from.getSelectedItem().toString() : "";
@@ -193,7 +193,5 @@ public class CurrencyConverterGUI
             String toName = label3 != null ? label3.getText().replace("Convert to: ", "") : toCode;
             String entry = String.format("%s (%s) → %s (%s): %.2f → %.2f", fromName, fromCode, toName, toCode, amount, result);
             addHistoryEntry(entry);
-        } catch (Exception ex) {
-        }
     }
 }

@@ -27,22 +27,43 @@ public class App {
             gui.startScreen2();
         });
 
+
         gui.exitbtn.addActionListener(ActionEvent -> {
             System.exit(0);
         });
         
         gui.convertbtn.addActionListener(ActionEvent -> {
-            gui.totf.setText("0.00");
-            if (gui.fromtf.getText().isEmpty()) {
-                gui.frame2.revalidate();
-                gui.frame2.repaint();
-                return;
+        String input = gui.fromtf.getText();
+        boolean isInvalid = false;
+        if (input.isEmpty())
+        {
+            isInvalid = true;
+        }
+        else
+        {
+        for (int i = 0; i < input.length(); i++) {
+            char c = input.charAt(i);
+            // If it's not a digit and not a dot, it's a string
+            if ((c < '0' || c > '9') && c != '.') {
+                isInvalid = true;
             }
-            updateL();
-            gui.recordConversion();
-            gui.frame2.revalidate();
-            gui.frame2.repaint();
-        });
+        }
+    }
+
+    if (isInvalid)
+    {
+        gui.fromtf.setText("not a number");
+        gui.totf.setText("0.00");
+    }
+    else
+    {
+        updateL();
+        gui.recordConversion();
+    }
+    gui.frame2.revalidate();
+    gui.frame2.repaint();
+});
+
 
         gui.switchbtn.addActionListener(ActionEvent -> {
                 Object fromSelected = gui.from.getSelectedItem();
@@ -72,7 +93,6 @@ public class App {
         
         if (from.equals(to)) {
             gui.totf.setText(Double.toString(amount));
-            gui.frame2.pack();
             return;
         }
         
