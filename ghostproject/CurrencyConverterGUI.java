@@ -160,9 +160,6 @@ public class CurrencyConverterGUI
             historyFrame.setVisible(false);
             frame2.setVisible(true);
         });
-
-       
-        
     }
     public void setCombobox(String a)
     {
