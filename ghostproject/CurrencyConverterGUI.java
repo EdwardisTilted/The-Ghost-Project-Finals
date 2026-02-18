@@ -80,7 +80,7 @@ public class CurrencyConverterGUI
         mp2 = new JPanel();
                 
         label2 = new JLabel("Convert from: ");
-        label3 = new JLabel("Convert to: ");
+        label3 = new JLabel("Converted to: ");
         label4 = new JLabel("Updates are made every 24 hours, last updated: 4:00 PM PHT");
 
         //panels 8 to 14
